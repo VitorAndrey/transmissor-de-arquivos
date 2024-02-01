@@ -1,0 +1,6 @@
+@import './shadcn.css';
+
+body {
+  overflow: hidden;
+  user-select: none;
+}

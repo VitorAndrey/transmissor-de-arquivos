@@ -5,5 +5,9 @@ export const Route = createLazyFileRoute('/about')({
 })
 
 function About(): JSX.Element {
-  return <div>Hello from About!</div>
+  return (
+    <div>
+      <h1>Hello from About!</h1>
+    </div>
+  )
 }

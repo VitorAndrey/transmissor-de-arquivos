@@ -15,7 +15,7 @@ export default defineConfig({
       alias: {
         '@renderer': resolve('src/renderer/src'),
 
-        // For shadcnui
+        // For Shadcnui configuration
         'src/renderer/src/components': resolve('src/renderer/src/components'),
         'src/renderer/src/utils/shadcn': resolve('src/renderer/src/utils/shadcn'),
         'src/renderer/src/components/shadcn': resolve('src/renderer/src/components/shadcn')

@@ -51,6 +51,25 @@ Com o intuito de assegurar consistência e qualidade no código, implementamos u
 
 Além disso, para garantir uma abordagem eficaz e sem sobrecarga, certas exclusões foram configuradas no processo de linting. O diretório `src/renderer/src/components/ui` foi excluído do linting, pois deve conter EXCLUSIVAMENTE componentes da biblioteca de componentes. Componentes personalizados devem ser criados em `src/renderer/src/components`.
 
+## Estrutura de pastas de Nomeclatura de arquivos
+
+```
+📦 root
+├─ 📁 main
+├─ 📁 preload
+├─ 📁 renderer
+├─ 📄 electron.vite.config.ts
+└─ 📄 package.json
+```
+
+```
+├─ 📁 renderer
+│  ├─ 📁 src
+│  │  ├─ 📁 components
+│  │  │  ├─ 📁 shadcn
+└─ ├─ 📄 index.html
+```
+
 ## Alias
 
 Para facilitar a referência a caminhos específicos no projeto, foram configurados aliases. Isso simplifica a escrita e leitura do código, tornando o projeto mais legível. Os aliases configurados são:
@@ -63,8 +82,22 @@ Certifique-se de utilizá-los conforme necessário para melhorar a organização
 
 ## UI
 
-Visando aprimorar a experiência do desenvolvedor (DX) e acelerar o processo de desenvolvimento, facilitando a implementação da entrega contínua, optamos pelas seguintes bibliotecas de UI:
+Com o objetivo de aprimorar a experiência do desenvolvedor (DX) e acelerar o processo de desenvolvimento, facilitando a implementação da entrega contínua, optamos por integrar as seguintes bibliotecas de UI:
 
 - [React](https://react.dev/reference/react)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [ShadCui](https://ui.shadcn.com/docs) (Componentes)
+- [ShadCui](https://ui.shadcn.com/docs) - Uma biblioteca de componentes que oferece elementos de interface trazendo o código dos componentes para o projeto, tornando-os totalmente personalizáveis.
+
+Para garantir uma organização eficaz, todos os arquivos e diretórios relacionados à biblioteca ShadCui seguem uma convenção de nomenclatura consistente. Os componentes da biblioteca estão localizados em `/components/shadcn`, as variáveis CSS em `/styles/shadcn.css`, e os utilitários em `/utils/shadcn.ts`.
+
+## Roteamento
+
+Para o gerenciamento de rotas, escolhemos a biblioteca [Tanstack Router](https://tanstack.com/router/latest/docs/framework/react/overview), principalmente devido à sua integração eficiente com o TypeScript.
+
+As rotas devem ser definidas dentro do diretório `src/renderer/src/routes`, sendo elas:
+
+- **Home**
+- **About**
+- **Contact Us**
+
+Essa estrutura de roteamento proporciona uma navegação clara e organizada dentro do aplicativo. Certifique-se de criar e configurar as páginas correspondentes para cada rota dentro desse diretório.

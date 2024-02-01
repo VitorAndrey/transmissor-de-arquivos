@@ -15,15 +15,6 @@
       "@renderer/*": [
         "src/renderer/src/*"
       ],
-      "@components/*": [
-        "src/renderer/src/components/*"
-      ],
-      "@shadcn/*": [
-        "src/renderer/src/components/shadcn/*"
-      ],
-      "@shadcn-utils": [
-        "src/renderer/src/lib/utils"
-      ]
     }
   }
 }

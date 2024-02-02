@@ -12,7 +12,10 @@ files:
 asarUnpack:
   - resources/**
 win:
+  target:
+    - target: portable
   executableName: transmissor-de-arquivos
+  icon: ./resources/icon.ico
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}

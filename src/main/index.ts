@@ -11,6 +11,8 @@ let tray: Tray | null = null
 
 function createWindow(): void {
   if (!mainWindow) {
+    app.setName('Transmissor de arquivos')
+
     mainWindow = new BrowserWindow({
       show: false,
       width: 1020,
@@ -64,7 +66,7 @@ function createTray(): void {
         }
       }
     })
-    tray.setToolTip('Build test')
+    tray.setToolTip('Trasmissor de arquivos')
   }
 }
 

@@ -101,3 +101,5 @@ As rotas devem ser definidas dentro do diretório `src/renderer/src/routes`, sen
 - **Contact Us**
 
 Essa estrutura de roteamento proporciona uma navegação clara e organizada dentro do aplicativo. Certifique-se de criar e configurar as páginas correspondentes para cada rota dentro desse diretório.
+
+# Gerenciamento de estados

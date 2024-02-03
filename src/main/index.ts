@@ -1,11 +1,11 @@
-import { app, shell, BrowserWindow, ipcMain, nativeImage, Tray } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, Tray } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
 import { registerIpcEvents } from './src/ipc-events'
 registerIpcEvents(ipcMain)
 
-const appIcon = nativeImage.createFromPath(join(__dirname, '../../resources/icon.png'))
+import icon from '../../resources/icon.png?asset'
 let mainWindow: BrowserWindow | null = null
 let tray: Tray | null = null
 
@@ -19,7 +19,7 @@ function createWindow(): void {
       height: 708,
       minWidth: 680,
       minHeight: 708,
-      icon: appIcon,
+      icon,
       resizable: true,
       autoHideMenuBar: true,
 
@@ -29,7 +29,7 @@ function createWindow(): void {
         preload: join(__dirname, '../preload/index.js')
       },
 
-      ...(process.platform === 'linux' ? { appIcon } : {})
+      ...(process.platform === 'linux' ? { icon } : {})
     })
 
     mainWindow.on('ready-to-show', () => {
@@ -56,7 +56,7 @@ function createWindow(): void {
 
 function createTray(): void {
   if (!tray) {
-    tray = new Tray(appIcon)
+    tray = new Tray(icon)
     tray.on('click', () => {
       if (mainWindow) {
         if (mainWindow.isVisible()) {

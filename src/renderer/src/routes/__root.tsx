@@ -1,14 +1,16 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import Header from '@renderer/components/Header'
+import Sidebar from '@renderer/components/Sidebar'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-4 gap-4 flex">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+      <Header />
+
+      <div className="flex">
+        <Sidebar />
+        <Outlet />
       </div>
-      <hr />
-      <Outlet />
     </>
   )
 })

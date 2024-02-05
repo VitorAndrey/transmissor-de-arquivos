@@ -1,7 +1,9 @@
-import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { RouterProvider, createHashHistory, createRouter } from '@tanstack/react-router'
 import { routeTree } from '../../routeTree.gen'
 
-const router = createRouter({ routeTree })
+const hashHistory = createHashHistory()
+
+const router = createRouter({ routeTree, history: hashHistory })
 
 declare module '@tanstack/react-router' {
   interface Register {
@@ -12,11 +14,3 @@ declare module '@tanstack/react-router' {
 export default function App(): JSX.Element {
   return <RouterProvider router={router} />
 }
-
-// export default function App(): JSX.Element {
-//   return (
-//     <div>
-//       <h1>Hello World!</h1>
-//     </div>
-//   )
-// }

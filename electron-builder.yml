@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: transmissor-de-arquivos
+productName: Transmissor de Arquivos
 directories:
   buildResources: build
 files:
@@ -14,7 +14,7 @@ asarUnpack:
 win:
   target:
     - target: portable
-  executableName: transmissor-de-arquivos
+  executableName: Transmissor de Arquivos
   icon: ./resources/icon.ico
 nsis:
   artifactName: ${name}-${version}-setup.${ext}

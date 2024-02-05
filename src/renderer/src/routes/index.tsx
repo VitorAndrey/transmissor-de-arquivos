@@ -8,10 +8,10 @@ export const Route = createFileRoute('/')({
 
 function Index(): JSX.Element {
   return (
-    <div>
+    <div className="space-y-2 p-4">
       <h1>Welcome Home!</h1>
       <Button>Venci!</Button>
-      <Input />
+      <Input className="w-80" />
     </div>
   )
 }

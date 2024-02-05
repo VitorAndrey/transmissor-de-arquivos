@@ -6,7 +6,7 @@ export const Route = createFileRoute('/about')({
 
 function About(): JSX.Element {
   return (
-    <div>
+    <div className="p-4">
       <h1>Hello from About!</h1>
     </div>
   )

@@ -4,13 +4,17 @@ import { createRootRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   component: () => (
-    <>
+    <main className="flex h-screen w-screen flex-col">
       <Header />
 
-      <div className="flex">
-        <Sidebar />
-        <Outlet />
+      <div className="flex flex-1">
+        <div className="border-r p-4">
+          <Sidebar />
+        </div>
+        <div className="flex-1 p-4">
+          <Outlet />
+        </div>
       </div>
-    </>
+    </main>
   )
 })

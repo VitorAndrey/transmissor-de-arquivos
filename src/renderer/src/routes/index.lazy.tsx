@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute } from '@tanstack/react-router'
 import { Button } from '@renderer/components/shadcn/button'
 import { Input } from '@renderer/components/shadcn/input'
 
-export const Route = createFileRoute('/')({
+export const Route = createLazyFileRoute('/')({
   component: Index
 })
 

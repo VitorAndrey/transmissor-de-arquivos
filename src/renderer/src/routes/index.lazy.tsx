@@ -22,7 +22,7 @@ function Index(): JSX.Element {
   return (
     <div className="space-y-2">
       <h1>Welcome Home!</h1>
-      <Button>Venci!</Button>
+      <Button>Test</Button>
       <Input className="w-80" />
       {JSON.stringify(products)}
     </div>

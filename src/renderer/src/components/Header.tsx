@@ -7,9 +7,9 @@ export function Header(): JSX.Element {
     <header className="flex h-16 items-center justify-between border-b px-8">
       <div className="flex items-center gap-2">
         <CaixaLogo />
-        <h2>Transmissor de arquivos 1.0.0</h2>
+        <h2>Transmissor de Arquivos 1.0.0</h2>
       </div>
-      <button className={cn(buttonVariants({ variant: 'link' }), 'underline')}>Sair</button>
+      <button className={cn(buttonVariants({ variant: 'link' }), 'underline')}></button>
     </header>
   )
 }

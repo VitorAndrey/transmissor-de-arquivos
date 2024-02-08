@@ -8,7 +8,7 @@ import * as productSchema from './schemas/product'
 const betterSqlite = new Database(dbPath)
 const db = drizzle(betterSqlite, { schema: { ...productSchema } })
 
-migrate(db, { migrationsFolder: 'drizzle' })
+migrate(db, { migrationsFolder: 'src/database/migrations' })
 // TODO: Close database before quiting app
 // betterSqlite.close()
 

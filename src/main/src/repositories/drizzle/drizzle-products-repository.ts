@@ -1,6 +1,6 @@
-import { ProductType } from '@schemas/product'
+import { ProductType } from '@schemas/@exports'
 import { ProductsRepository } from '../products-repository'
-import { db } from '../../../../database/index'
+import { db } from '@database/index'
 
 export class DrizzleProductsRepository implements ProductsRepository {
   async findMany(): Promise<ProductType[]> {

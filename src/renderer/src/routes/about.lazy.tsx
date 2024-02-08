@@ -6,7 +6,7 @@ export const Route = createLazyFileRoute('/about')({
 
 function About(): JSX.Element {
   return (
-    <div className="p-4">
+    <div className="">
       <h1>Hello from About!</h1>
     </div>
   )

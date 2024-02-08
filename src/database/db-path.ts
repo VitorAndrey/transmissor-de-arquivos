@@ -3,10 +3,10 @@ import * as fs from 'fs'
 import { join } from 'path'
 
 const userDataPath = app.getPath('userData')
-const appDataPath = join(userDataPath, 'db')
+const appDataPath = join(userDataPath, 'database')
 
 if (!fs.existsSync(appDataPath)) {
   fs.mkdirSync(appDataPath)
 }
 
-export const dbPath = join(appDataPath, 'database.sqlite')
+export const dbPath = join(appDataPath, 'sqlite.db')

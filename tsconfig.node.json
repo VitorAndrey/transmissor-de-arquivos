@@ -5,9 +5,18 @@
     "src/main/src/**/*",
     "src/main/index.ts",
     "src/preload/*",
-    "src/types/**/*"],
+    "src/database/**/*"],
   "compilerOptions": {
     "composite": true,
-    "types": ["electron-vite/node"]
+    "types": ["electron-vite/node"],
+    "baseUrl": ".",
+    "paths": {
+      "@main/*": [
+        "src/main/src/*"
+      ],
+      "@schemas/*": [
+        "src/database/schemas/*"
+      ],
+    }
   }
 }

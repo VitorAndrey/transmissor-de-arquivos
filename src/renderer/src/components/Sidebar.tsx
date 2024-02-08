@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 
-export default function Sidebar(): JSX.Element {
+export function Sidebar(): JSX.Element {
   return (
-    <aside className="flex flex-col gap-2">
+    <aside className="flex flex-col gap-2 p-6">
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
     </aside>

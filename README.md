@@ -1,4 +1,4 @@
-# Bem-vindo ao Trasmissor de Arquivos Caixa
+# Trasmissor de Arquivos Caixa
 
 ## Visão Geral
 
@@ -102,4 +102,27 @@ As rotas devem ser definidas dentro do diretório `src/renderer/src/routes`, sen
 
 Essa estrutura de roteamento proporciona uma navegação clara e organizada dentro do aplicativo. Certifique-se de criar e configurar as páginas correspondentes para cada rota dentro desse diretório.
 
-# Gerenciamento de estados
+**Aviso**
+O ambiente do electron nao suporta browser router por nao possuir um servidor, sendo assim, está sendo utilizado o hash router.
+
+## Gerenciamento de Estados
+
+Para o gerenciamento de estados, optamos por integrar a biblioteca [Zustand](https://github.com/pmndrs/zustand). O Zustand é uma solução leve e eficiente que simplifica o controle do estado global na aplicação React.
+
+## Gerenciamento de Formulários
+
+Para lidar com formulários, escolhemos uma combinação poderosa: [React Hook Form](https://react-hook-form.com/) em conjunto com [Zod](https://github.com/colinhacks/zod) para validação de esquemas. O React Hook Form oferece uma abordagem simples e eficiente para a criação de formulários React, enquanto o Zod fornece uma maneira declarativa de validar os dados do formulário com TypeScript.
+
+## Validação de Tipos
+
+Para garantir a validação consistente e estática dos tipos de dados, implementamos a biblioteca [Zod](https://github.com/colinhacks/zod). O Zod facilita a definição de esquemas de validação de dados, garantindo a integridade dos tipos durante o desenvolvimento.
+
+## Banco de Dados e ORM
+
+Para gerenciamento do banco de dados local e ORM (Object-Relational Mapping), optamos por [Drizzle](https://github.com/khalidx/drizzle). Este ORM proporciona uma integração suave com SQLite. As migrações podem ser geradas utilizando o comando:
+
+```bash
+drizzle-kit generate:sqlite
+```
+
+Esse comando foi adicionado aos scripts de desenvolvimento e build, garantindo que as migrações sejam executadas conforme necessário durante o ciclo de vida do projeto. Certifique-se de utilizar esse recurso ao criar ou modificar o esquema do banco de dados.

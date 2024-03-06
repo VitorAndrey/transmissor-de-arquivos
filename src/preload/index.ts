@@ -3,7 +3,7 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-  products: {
+  product: {
     findMany: () => ipcRenderer.invoke('get-products'),
     create: () => ipcRenderer.invoke('create-product'),
     update: () => ipcRenderer.invoke('update-product'),

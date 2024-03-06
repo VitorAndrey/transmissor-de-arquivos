@@ -1,9 +1,9 @@
 import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core'
 
-export const products = sqliteTable('products', {
+export const product = sqliteTable('products', {
   id: integer('id').primaryKey(),
   name: text('name')
 })
 
-export type ProductType = typeof products.$inferSelect
-export type InsertProductType = typeof products.$inferInsert
+export type ProductType = typeof product.$inferSelect
+export type InsertProductType = typeof product.$inferInsert

@@ -8,7 +8,7 @@ declare global {
 }
 
 interface Api {
-  products: {
+  product: {
     findMany: () => ReturnType<typeof ipcRenderer.send>
   }
 }

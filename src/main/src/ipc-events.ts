@@ -1,4 +1,4 @@
-import { getProducts, quitApp, sendLog } from './ipc-handlers'
+import { getProducts, quitApp, sendLog } from './ipc-handlers/@exports'
 
 export function registerIpcEvents(ipcMain): void {
   ipcMain.handle('get-products', getProducts)

@@ -7,6 +7,6 @@ module.exports = {
     '@electron-toolkit/eslint-config-prettier'
   ],
   rules: {
-    '@typescript-eslint/explicit-function-return-type': ['warn']
+    '@typescript-eslint/explicit-function-return-type': ['off']
   }
 }

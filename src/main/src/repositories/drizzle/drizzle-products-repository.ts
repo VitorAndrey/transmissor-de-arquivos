@@ -4,7 +4,7 @@ import { db } from '../../../../database'
 
 export class DrizzleProductsRepository implements ProductsRepository {
   async findMany(): Promise<ProductType[]> {
-    const data = db.query.products.findMany()
+    const data = db.query.product.findMany()
 
     return data
   }

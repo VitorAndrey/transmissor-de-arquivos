@@ -11,7 +11,7 @@ function Index(): JSX.Element {
   const [products, setProducts] = useState([])
 
   async function fetchProducts(): Promise<void> {
-    const products = await window.api.products.findMany()
+    const products = await window.api.product.findMany()
     setProducts(products)
   }
 

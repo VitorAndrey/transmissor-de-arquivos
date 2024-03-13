@@ -5,7 +5,13 @@ import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [externalizeDepsPlugin()],
+    resolve: {
+      alias: {
+        '@main': resolve('src/main/src'),
+        '@database': resolve('src/database')
+      }
+    }
   },
   preload: {
     plugins: [externalizeDepsPlugin()]
@@ -25,7 +31,7 @@ export default defineConfig({
       react(),
       TanStackRouterVite({
         routesDirectory: resolve(__dirname, 'src/renderer/src/routes'),
-        generatedRouteTree: resolve('src/renderer/src/routeTree.gen.ts')
+        generatedRouteTree: resolve('src/renderer/src/route-tree.gen.ts')
       })
     ]
   }

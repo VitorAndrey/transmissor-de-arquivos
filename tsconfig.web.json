@@ -6,7 +6,7 @@
     "src/renderer/src/**/*.tsx",
     "src/preload/*.d.ts",
     "src/routeTree.gen.ts",
-    "src/database/schemas/**/*"
+    "src/database/drizzle/schemas/**/*"
   ],
   "compilerOptions": {
     "composite": true,
@@ -16,8 +16,8 @@
       "@renderer/*": [
         "src/renderer/src/*"
       ],
-      "@schemas/*": [
-        "src/database/schemas/*"
+      "@schemas": [
+        "src/database/drizzle/schemas/@exports.ts"
       ],
     }
   }

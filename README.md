@@ -12,11 +12,7 @@ O projeto foi desenvolvido utilizando o Electron, uma estrutura que oferece dive
 
 Este projeto foi inicializado usando o boilerplate do [Electron Vite](https://electron-vite.org/), um modelo que simplifica a configuração inicial do projeto Electron com Vite. Para detalhes específicos sobre a configuração do template, consulte a [documentação oficial](https://electron-vite.org/guide/) ou visite o [repositório no GitHub](https://github.com/alex8088/electron-vite).
 
-```bash
-npm create @quick-start/electron
-```
-
-É importante observar que os comentários presentes no código são exclusivamente os que foram incluídos por padrão. Eles fornecem uma visão geral sobre o funcionamento de algumas partes do Electron, contribuindo para uma compreensão geral do framework.
+Essa solução tem mantenedores bastante ativos que sempre respondem às dúvidas nas [discussões](https://github.com/alex8088/electron-vite/discussions) em seu repositório.
 
 ## Como Iniciar
 
@@ -53,11 +49,14 @@ Além disso, para garantir uma abordagem eficaz e sem sobrecarga, certas exclus�
 
 ## Estrutura de pastas de Nomeclatura de arquivos
 
+A estrutura de pastas é a construida em cima do padrao do template electron-vite.
+
 ```
 📦 root
-├─ 📁 main
-├─ 📁 preload
-├─ 📁 renderer
+├─ 📁 src
+│  ├─ 📁 main
+│  ├─ 📁 preload
+│  └─ 📁 renderer
 ├─ 📄 electron.vite.config.ts
 └─ 📄 package.json
 ```
@@ -66,9 +65,19 @@ Além disso, para garantir uma abordagem eficaz e sem sobrecarga, certas exclus�
 ├─ 📁 renderer
 │  ├─ 📁 src
 │  │  ├─ 📁 components
-│  │  │  ├─ 📁 shadcn
-└─ ├─ 📄 index.html
+│  │  │  └─ 📁 shadcn
+│  │  └─ 📁 ...rest of folders
+└─ └─ 📄 index.html
 ```
+
+```
+├─ 📁 main
+│  ├─ 📁 src
+│  │  └─ 📁 components
+└─ └─ 📄 index.ts
+```
+
+Os nomes do arquivos devem seguir o padrao kebab case.
 
 ## Alias
 
@@ -82,7 +91,7 @@ Certifique-se de utilizá-los conforme necessário para melhorar a organização
 
 ## UI
 
-Com o objetivo de aprimorar a experiência do desenvolvedor (DX) e acelerar o processo de desenvolvimento, facilitando a implementação da entrega contínua, optamos por integrar as seguintes bibliotecas de UI:
+Optamos por integrar as seguintes bibliotecas de UI:
 
 - [React](https://react.dev/reference/react)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -92,7 +101,7 @@ Para garantir uma organização eficaz, todos os arquivos e diretórios relacion
 
 ## Roteamento
 
-Para o gerenciamento de rotas, escolhemos a biblioteca [Tanstack Router](https://tanstack.com/router/latest/docs/framework/react/overview), principalmente devido à sua integração eficiente com o TypeScript.
+Para o gerenciamento de rotas, escolhemos a biblioteca [Tanstack Router](https://tanstack.com/router/latest/docs/framework/react/overview), principalmente devido à sua integração com o TypeScript.
 
 As rotas devem ser definidas dentro do diretório `src/renderer/src/routes`, sendo elas:
 

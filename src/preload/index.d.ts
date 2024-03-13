@@ -10,5 +10,8 @@ declare global {
 interface Api {
   product: {
     findMany: () => ReturnType<typeof ipcRenderer.send>
+    create: () => ReturnType<typeof ipcRenderer.send>
+    update: () => ReturnType<typeof ipcRenderer.send>
+    delete: () => ReturnType<typeof ipcRenderer.send>
   }
 }

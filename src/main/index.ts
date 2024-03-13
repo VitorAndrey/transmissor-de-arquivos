@@ -2,7 +2,7 @@ import { app, shell, BrowserWindow, ipcMain, Tray } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
-import { registerIpcEvents } from './src/ipc-events'
+import { registerIpcEvents } from './src/ipc/ipc-events'
 registerIpcEvents(ipcMain)
 
 import icon from '../../resources/icon.png?asset'

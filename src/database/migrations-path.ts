@@ -1,5 +1,12 @@
-import { app } from 'electron'
+import * as fs from 'fs'
 import { join } from 'path'
+import { app } from 'electron'
 
 const userDataPath = app.getPath('userData')
-export const migrationsPath = join(userDataPath, 'Migrations')
+const migrationsPath = join(userDataPath, 'Migrations')
+
+if (!fs.existsSync(migrationsPath)) {
+  fs.mkdirSync(migrationsPath)
+}
+
+export { migrationsPath }

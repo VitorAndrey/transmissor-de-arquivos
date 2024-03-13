@@ -1,4 +1,4 @@
-import { DrizzleProductsRepository } from '../repositories/drizzle/drizzle-products-repository'
+import { DrizzleProductsRepository } from '../../repositories/drizzle/drizzle-products-repository'
 
 export async function getProducts() {
   const productsRepository = new DrizzleProductsRepository()

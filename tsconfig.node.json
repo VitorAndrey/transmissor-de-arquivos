@@ -14,8 +14,8 @@
       "@main/*": [
         "src/main/src/*"
       ],
-      "@schemas/*": [
-        "src/database/schemas/*"
+      "@database/*": [
+        "src/database/*"
       ],
     }
   }

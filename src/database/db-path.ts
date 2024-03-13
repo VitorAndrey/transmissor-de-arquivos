@@ -1,12 +1,12 @@
-import { app } from 'electron'
 import * as fs from 'fs'
 import { join } from 'path'
+import { app } from 'electron'
 
 const userDataPath = app.getPath('userData')
-const appDataPath = join(userDataPath, 'Database')
+const dbPath = join(userDataPath, 'Database')
 
-if (!fs.existsSync(appDataPath)) {
-  fs.mkdirSync(appDataPath)
+if (!fs.existsSync(dbPath)) {
+  fs.mkdirSync(dbPath)
 }
 
-export const dbPath = join(appDataPath, 'sqlite.db')
+export { dbPath }

@@ -2,5 +2,6 @@ node_modules
 dist
 out
 .gitignore
-src/renderer/src/components/shadcn
 tailwind.config.js
+src/renderer/src/components/shadcn
+src/renderer/src/route-tree.gen.ts

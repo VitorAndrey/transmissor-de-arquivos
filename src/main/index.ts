@@ -15,10 +15,10 @@ function createWindow(): void {
 
     mainWindow = new BrowserWindow({
       show: false,
-      width: 1020,
-      height: 708,
-      minWidth: 680,
-      minHeight: 708,
+      width: 1280,
+      height: 720,
+      minWidth: 800,
+      minHeight: 600,
       icon,
       resizable: true,
       autoHideMenuBar: true,

@@ -30,7 +30,7 @@ export default defineConfig({
     plugins: [
       react(),
       TanStackRouterVite({
-        routesDirectory: resolve(__dirname, 'src/renderer/src/routes'),
+        routesDirectory: resolve('src/renderer/src/routes'),
         generatedRouteTree: resolve('src/renderer/src/route-tree.gen.ts')
       })
     ]

@@ -5,34 +5,82 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as IndexImport } from './routes/index'
 
 // Create Virtual Routes
 
-const AboutLazyImport = createFileRoute('/about')()
-const IndexLazyImport = createFileRoute('/')()
+const TransferenciaManualLazyImport = createFileRoute('/transferencia-manual')()
+const HistoricoLazyImport = createFileRoute('/historico')()
+const GerenciarProdutosLazyImport = createFileRoute('/gerenciar-produtos')()
+const CadastrarProdutoLazyImport = createFileRoute('/cadastrar-produto')()
+const AlterarProdutoLazyImport = createFileRoute('/alterar-produto')()
 
 // Create/Update Routes
 
-const AboutLazyRoute = AboutLazyImport.update({
-  path: '/about',
+const TransferenciaManualLazyRoute = TransferenciaManualLazyImport.update({
+  path: '/transferencia-manual',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./routes/transferencia-manual.lazy').then((d) => d.Route),
+)
 
-const IndexLazyRoute = IndexLazyImport.update({
+const HistoricoLazyRoute = HistoricoLazyImport.update({
+  path: '/historico',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/historico.lazy').then((d) => d.Route))
+
+const GerenciarProdutosLazyRoute = GerenciarProdutosLazyImport.update({
+  path: '/gerenciar-produtos',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/gerenciar-produtos.lazy').then((d) => d.Route),
+)
+
+const CadastrarProdutoLazyRoute = CadastrarProdutoLazyImport.update({
+  path: '/cadastrar-produto',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/cadastrar-produto.lazy').then((d) => d.Route),
+)
+
+const AlterarProdutoLazyRoute = AlterarProdutoLazyImport.update({
+  path: '/alterar-produto',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/alterar-produto.lazy').then((d) => d.Route),
+)
+
+const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      preLoaderRoute: typeof IndexLazyImport
+      preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      preLoaderRoute: typeof AboutLazyImport
+    '/alterar-produto': {
+      preLoaderRoute: typeof AlterarProdutoLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/cadastrar-produto': {
+      preLoaderRoute: typeof CadastrarProdutoLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/gerenciar-produtos': {
+      preLoaderRoute: typeof GerenciarProdutosLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/historico': {
+      preLoaderRoute: typeof HistoricoLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/transferencia-manual': {
+      preLoaderRoute: typeof TransferenciaManualLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -40,4 +88,11 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexLazyRoute, AboutLazyRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexRoute,
+  AlterarProdutoLazyRoute,
+  CadastrarProdutoLazyRoute,
+  GerenciarProdutosLazyRoute,
+  HistoricoLazyRoute,
+  TransferenciaManualLazyRoute,
+])

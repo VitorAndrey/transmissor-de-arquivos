@@ -4,5 +4,6 @@ pnpm-lock.yaml
 LICENSE.md
 tsconfig.json
 tsconfig.*.json
-src/renderer/src/components/shadcn
 tailwind.config.js
+src/renderer/src/components/
+src/renderer/src/route-tree.gen.ts

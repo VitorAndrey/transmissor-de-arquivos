@@ -1,15 +1,49 @@
-import { cn } from '@renderer/utils/shadcn'
-import { buttonVariants } from './shadcn/button'
 import { CaixaLogo } from './caixa-logo'
 
-export function Header(): JSX.Element {
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger
+} from "@renderer/components/shadcn/alert-dialog"
+
+export function Header(){
   return (
-    <header className="flex h-16 items-center justify-between border-b px-8">
-      <div className="flex items-center gap-2">
-        <CaixaLogo />
-        <h2>Transmissor de Arquivos 1.0.0</h2>
+    <header className="flex h-24 items-center gap-8 border-y px-8">
+      <CaixaLogo />
+
+      <div className="flex-1">
+        <h1 className="text-xl font-bold">Transmissor de documentos</h1>
+        <span className="text-sm">Versão 1.0.0</span>
       </div>
-      <button className={cn(buttonVariants({ variant: 'link' }), 'underline')}></button>
+
+      <AlertDialog>
+      <AlertDialogTrigger>
+        <span className="text-sm underline">Sair</span>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
+          <AlertDialogDescription>
+            <p>
+              Ao fechar o programa na opção &quot;Sair&quot; ao invés de no &quot;X&quot; da janela,
+              o programa encerrará completamente o processo automático de envio de arquivos.
+            </p>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          <AlertDialogAction onClick={() => {}}>
+            Encerrar
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
     </header>
   )
 }

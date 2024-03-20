@@ -21,7 +21,7 @@ function CadastrarProduto(): JSX.Element {
   return (
     <div>
       <h1>Cadastrar Produto</h1>
-      {products}
+      {JSON.stringify(products)}
     </div>
   )
 }

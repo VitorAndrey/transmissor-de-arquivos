@@ -1,7 +1,7 @@
-import { DrizzleProductsRepository } from '../../repositories/drizzle/drizzle-products-repository'
+import { SequelizeProductsRepository } from '@main/repositories/sequelize/sequelize-products-repository'
 
 export async function getProducts() {
-  const productsRepository = new DrizzleProductsRepository()
+  const productsRepository = new SequelizeProductsRepository()
 
   try {
     const products = await productsRepository.findMany()

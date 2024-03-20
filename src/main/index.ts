@@ -1,11 +1,13 @@
-import { app, shell, BrowserWindow, ipcMain, Tray } from 'electron'
 import { join } from 'path'
+import { sequelize } from '@database/sequelize'
+import icon from '../../resources/icon.png?asset'
+import { app, shell, BrowserWindow, ipcMain, Tray } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import * as SequelizeSchemas from '@database/sequelize/schemas/@exports'
 
 import { registerIpcEvents } from './src/ipc/ipc-events'
 registerIpcEvents(ipcMain)
 
-import icon from '../../resources/icon.png?asset'
 let mainWindow: BrowserWindow | null = null
 let tray: Tray | null = null
 
@@ -70,6 +72,25 @@ function createTray(): void {
   }
 }
 
+async function syncSequelize() {
+  try {
+    const syncConfig = { force: false, alter: true }
+
+    await sequelize.sync(syncConfig)
+
+    await Promise.all(
+      Object.values(SequelizeSchemas).map((schema) => {
+        //@ts-ignore TODO: look for the right typing for this
+        schema.sync(syncConfig)
+      })
+    )
+
+    console.log('Sequelize models synced successfully.')
+  } catch (error) {
+    console.error('Error synchronizing sequelize:\n', error)
+  }
+}
+
 const gotTheLock = app.requestSingleInstanceLock()
 
 if (!gotTheLock) {
@@ -102,6 +123,9 @@ if (!gotTheLock) {
 
   app.whenReady().then(() => {
     electronApp.setAppUserModelId('com.electron')
+
+    // Call just when using sequelize
+    syncSequelize()
 
     createTray()
     createWindow()

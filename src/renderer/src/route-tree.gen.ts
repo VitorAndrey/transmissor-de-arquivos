@@ -11,9 +11,13 @@ import { Route as IndexImport } from './routes/index'
 
 const TransferenciaManualLazyImport = createFileRoute('/transferencia-manual')()
 const HistoricoLazyImport = createFileRoute('/historico')()
-const GerenciarProdutosLazyImport = createFileRoute('/gerenciar-produtos')()
 const CadastrarProdutoLazyImport = createFileRoute('/cadastrar-produto')()
-const AlterarProdutoLazyImport = createFileRoute('/alterar-produto')()
+const GerenciarProdutosPageLazyImport = createFileRoute(
+  '/gerenciar-produtos/$page',
+)()
+const AlterarProdutoConvenioLazyImport = createFileRoute(
+  '/alterar-produto/$convenio',
+)()
 
 // Create/Update Routes
 
@@ -29,13 +33,6 @@ const HistoricoLazyRoute = HistoricoLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/historico.lazy').then((d) => d.Route))
 
-const GerenciarProdutosLazyRoute = GerenciarProdutosLazyImport.update({
-  path: '/gerenciar-produtos',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/gerenciar-produtos.lazy').then((d) => d.Route),
-)
-
 const CadastrarProdutoLazyRoute = CadastrarProdutoLazyImport.update({
   path: '/cadastrar-produto',
   getParentRoute: () => rootRoute,
@@ -43,17 +40,26 @@ const CadastrarProdutoLazyRoute = CadastrarProdutoLazyImport.update({
   import('./routes/cadastrar-produto.lazy').then((d) => d.Route),
 )
 
-const AlterarProdutoLazyRoute = AlterarProdutoLazyImport.update({
-  path: '/alterar-produto',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/alterar-produto.lazy').then((d) => d.Route),
-)
-
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const GerenciarProdutosPageLazyRoute = GerenciarProdutosPageLazyImport.update({
+  path: '/gerenciar-produtos/$page',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/gerenciar-produtos.$page.lazy').then((d) => d.Route),
+)
+
+const AlterarProdutoConvenioLazyRoute = AlterarProdutoConvenioLazyImport.update(
+  {
+    path: '/alterar-produto/$convenio',
+    getParentRoute: () => rootRoute,
+  } as any,
+).lazy(() =>
+  import('./routes/alterar-produto.$convenio.lazy').then((d) => d.Route),
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -63,16 +69,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/alterar-produto': {
-      preLoaderRoute: typeof AlterarProdutoLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/cadastrar-produto': {
       preLoaderRoute: typeof CadastrarProdutoLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/gerenciar-produtos': {
-      preLoaderRoute: typeof GerenciarProdutosLazyImport
       parentRoute: typeof rootRoute
     }
     '/historico': {
@@ -83,6 +81,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TransferenciaManualLazyImport
       parentRoute: typeof rootRoute
     }
+    '/alterar-produto/$convenio': {
+      preLoaderRoute: typeof AlterarProdutoConvenioLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/gerenciar-produtos/$page': {
+      preLoaderRoute: typeof GerenciarProdutosPageLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -90,9 +96,9 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
-  AlterarProdutoLazyRoute,
   CadastrarProdutoLazyRoute,
-  GerenciarProdutosLazyRoute,
   HistoricoLazyRoute,
   TransferenciaManualLazyRoute,
+  AlterarProdutoConvenioLazyRoute,
+  GerenciarProdutosPageLazyRoute,
 ])

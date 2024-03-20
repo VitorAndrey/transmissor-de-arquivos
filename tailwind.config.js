@@ -18,6 +18,30 @@ module.exports = {
     },
     extend: {
       colors: {
+        // Custom Palette
+        azul: {
+          standard: '#005DA8',
+          light: '#1067AD'
+        },
+        laranja: {
+          standard: '#F39200',
+          light: '#F59939'
+        },
+        cinza: {
+          light: '#F7FAFA',
+          standard: '#CCDDE0',
+          dark: '#B3CDD1'
+        },
+        grafite: {
+          light: '#5C9099',
+          standard: '#3D6066',
+          dark: '#2E484D'
+        },
+        erro: '#ef4444',
+        aviso: '#eab308',
+        sucesso: '#22c55e',
+
+        // Shadcn
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
